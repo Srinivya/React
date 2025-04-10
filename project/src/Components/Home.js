@@ -1,7 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { productContext } from "../App";
+const Home = ({ products }) => {
+  const navigate = useNavigate();
+  const { isLogin, handleLogin, handleOut } = useContext(AuthContext);
+  const { handleAddToCart } = useContext(productContext);
 
-const Home = ({ products, handleAddToCart }) => {
   return (
     <div>
       <h1>All Products</h1>
